@@ -63,7 +63,7 @@ public class Main {
     private static boolean isTargetFile(String f) {
         if (f.contains(".")) {
             String[] v = f.split("\\.");
-            return extension.contains(v[1].toLowerCase());
+            return extension.contains(v[v.length - 1].toLowerCase());
         } else {
             return false;
         }
