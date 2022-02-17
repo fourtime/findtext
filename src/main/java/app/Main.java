@@ -19,6 +19,9 @@ public class Main {
             if (args.length == 3) {
                 extension = args[2];
             }
+            System.out.println("Directory: " + args[0]);
+            System.out.println("Find: " + text);
+            System.out.println("Extensions: " + extension);
             showFiles(args[0]);
         } catch (Exception e) {
             System.out.println("java -jar findtext.jar PATH TEXT");
@@ -35,7 +38,6 @@ public class Main {
             File file = new File(path);
             File[] list = file.listFiles();
             for (File f : list) {
-                System.out.println(f.getAbsolutePath());
                 if (f.isDirectory()) {
                     directories.add(f);
                 } else {
