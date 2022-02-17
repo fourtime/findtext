@@ -11,8 +11,12 @@ public class Main {
     private static String text;
 
     public static void main(String[] args) throws Exception {
-        text = args[1];
-        showFiles(args[0]);
+        try {
+            text = args[1];
+            showFiles(args[0]);
+        } catch (Exception e) {
+            System.out.println("java -jar findtext.jar PATH TEXT");
+        }
     }
 
     public static void showFiles(String path) throws Exception {
