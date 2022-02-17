@@ -86,7 +86,7 @@ public class Main {
                             System.out.println(path);
                             shownFile = true;
                         }
-                        System.out.println(l + ":" + linha);
+                        System.out.println(l + ": " + linha);
                         total++;
                     }
                     if (linha == null) {
