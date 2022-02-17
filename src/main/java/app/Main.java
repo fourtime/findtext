@@ -7,19 +7,26 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static final String EXTENDION = ",.php,.txt,.java,.json,.xls,.xlsx,";
+    private static final String EXTENSION = "php,txt,java,json,xls,xlsx,log";
     private static String text;
+    private static String extension;
+    private static int total = 0;
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         try {
+            extension = EXTENSION;
             text = args[1];
+            if (args.length == 3) {
+                extension = args[2];
+            }
             showFiles(args[0]);
         } catch (Exception e) {
             System.out.println("java -jar findtext.jar PATH TEXT");
+            System.out.println("java -jar findtext.jar PATH TEXT EXTENSIONS(php,txt,java,json,xls,xlsx,log)");
         }
     }
 
-    public static void showFiles(String path) throws Exception {
+    public static void showFiles(String path) {
 
         try {
 
@@ -28,6 +35,7 @@ public class Main {
             File file = new File(path);
             File[] list = file.listFiles();
             for (File f : list) {
+                System.out.println(f.getAbsolutePath());
                 if (f.isDirectory()) {
                     directories.add(f);
                 } else {
@@ -53,13 +61,13 @@ public class Main {
     private static boolean isTargetFile(String f) {
         if (f.contains(".")) {
             String[] v = f.split("\\.");
-            return EXTENDION.contains(v[1]);
+            return extension.contains(v[1].toLowerCase());
         } else {
             return false;
         }
     }
 
-    private static int openFile(String path) throws Exception {
+    private static int openFile(String path) {
         int qtd = 0;
         try {
             boolean shownFile = false;
@@ -77,6 +85,7 @@ public class Main {
                             shownFile = true;
                         }
                         System.out.println(l + ":" + linha);
+                        total++;
                     }
                     if (linha == null) {
                         break;
