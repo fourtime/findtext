@@ -72,6 +72,7 @@ public class Main {
                     if (linha != null && linha.contains(text)) {
                         qtd++;
                         if (!shownFile) {
+                            System.out.println("");
                             System.out.println(path);
                             shownFile = true;
                         }
