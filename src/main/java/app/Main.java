@@ -23,6 +23,8 @@ public class Main {
             System.out.println("Find: " + text);
             System.out.println("Extensions: " + extension);
             showFiles(args[0]);
+            System.out.println();
+            System.out.println("Total de textos encontrados: " + total);
         } catch (Exception e) {
             System.out.println("java -jar findtext.jar PATH TEXT");
             System.out.println("java -jar findtext.jar PATH TEXT EXTENSIONS(php,txt,java,json,xls,xlsx,log)");
