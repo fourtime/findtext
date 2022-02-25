@@ -22,17 +22,20 @@ public class Main {
             if (args.length >= 4) {
                 changeTo = args[3];
             }
-            System.out.println("Directory: " + args[0]);
-            System.out.println("Find: " + text);
-            System.out.println("Extensions: " + extension);
             showFiles(args[0]);
-            System.out.println();
-            System.out.println("Total de textos encontrados: " + total);
         } catch (Exception e) {
             System.out.println("java -jar findtext.jar PATH TEXT");
             System.out.println("java -jar findtext.jar PATH TEXT EXTENSIONS(php,txt,java,json,xls,xlsx,log)");
             System.out.println("java -jar findtext.jar PATH TEXT EXTENSIONS(php,txt,java,json,xls,xlsx,log) CHANGETO");
         }
+        System.out.println("Directory: " + args[0]);
+        System.out.println("Find: " + text);
+        System.out.println("Extensions: " + extension);
+        if (changeTo != null) {
+            System.out.println("Change To: " + changeTo);
+        }
+        System.out.println();
+        System.out.println("Total de textos encontrados: " + total);
     }
 
     public static void showFiles(String path) {
